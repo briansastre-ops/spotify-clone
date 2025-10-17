@@ -9,5 +9,8 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind(), svelte(), react()],
   output: 'server',
-  adapter: vercel()
+  adapter: vercel({
+    // Soluciona el error de despliegue especificando un runtime soportado.
+    runtime: 'nodejs20.x'
+  })
 });
